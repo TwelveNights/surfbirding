@@ -451,9 +451,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114490603811072742, guid: 64c059bb802d8334a9ccd2bc40fc7dd8,
         type: 2}
-      propertyPath: initialX
-      value: 10
-      objectReference: {fileID: 0}
+      propertyPath: edge
+      value: 
+      objectReference: {fileID: 1031639310088954, guid: 4c0be7c39bd06b2438a5e0c494407d5d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64c059bb802d8334a9ccd2bc40fc7dd8, type: 2}
   m_IsPrefabParent: 0

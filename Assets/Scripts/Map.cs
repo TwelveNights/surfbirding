@@ -12,9 +12,9 @@ public class Map : MonoBehaviour {
     public int amplitude; // 16
     public int resolution; // 16
 
-    public int yHeight = 0;
     public int tunnelWidth = 5;
     public int initialX = 14; // 14
+    public int initialY = 3;
 
     public int time = 0;
 
@@ -31,8 +31,8 @@ public class Map : MonoBehaviour {
         audioSource = GetComponent<AudioSource>();
         Vector3 pos = gameObject.transform.position;
 
-        top = Instantiate(edge, new Vector3(pos.x, pos.y + yHeight), Quaternion.identity, gameObject.transform);
-        bot = Instantiate(edge, new Vector3(pos.x, pos.y + yHeight - tunnelWidth), Quaternion.identity, gameObject.transform);
+        top = Instantiate(edge, new Vector3(pos.x, pos.y + initialY), Quaternion.identity, gameObject.transform);
+        bot = Instantiate(edge, new Vector3(pos.x, pos.y + initialY - tunnelWidth), Quaternion.identity, gameObject.transform);
  
         resolution = audioSource.clip.frequency / resolution;
     }
@@ -55,7 +55,7 @@ public class Map : MonoBehaviour {
             return new Vector2(float.MinValue, float.MaxValue);
         }
 
-        return new Vector2(tEdge.waveForm[curr] * amplitude - tunnelWidth + yHeight, bEdge.waveForm[curr] * amplitude + yHeight);
+        return new Vector2(tEdge.waveForm[curr] * amplitude - tunnelWidth + initialY, bEdge.waveForm[curr] * amplitude + initialY);
     }
 
     public bool gameWon()
