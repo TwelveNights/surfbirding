@@ -52,5 +52,10 @@ public class Map : MonoBehaviour {
 
         return new Vector2(tEdge.waveForm[curr] * amplitude - tunnelWidth + yHeight, bEdge.waveForm[curr] * amplitude + yHeight);
     }
+
+    public bool gameWon()
+    {
+        return time > top.GetComponent<Edge>().waveForm.Length;
+    }
 }
     

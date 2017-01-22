@@ -17,4 +17,9 @@ public class Back_Button : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
+    void Destroy()
+    {
+        button.onClick.RemoveListener(TaskOnClick);
+    }
 }

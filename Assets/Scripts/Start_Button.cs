@@ -4,16 +4,21 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class Start_Button : MonoBehaviour {
-    public Button startButton;
+    public Button button;
 
     void Start()
     {
-        startButton = GetComponent<Button>();
-        startButton.onClick.AddListener(TaskOnClick);
+        button = GetComponent<Button>();
+        button.onClick.AddListener(TaskOnClick);
     }
 
     void TaskOnClick()
     {
 		SceneManager.LoadScene("WaveGame");
+    }
+
+    void Destroy()
+    {
+        button.onClick.RemoveListener(TaskOnClick);
     }
 }
