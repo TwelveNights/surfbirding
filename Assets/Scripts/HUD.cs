@@ -11,7 +11,6 @@ public class HUD : MonoBehaviour {
 
     public ChangeColor changeColor;
     public Renderer cRend;
-    int pos = 1;
    
 
 //    Texture2D texture;
