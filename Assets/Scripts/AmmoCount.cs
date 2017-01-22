@@ -8,6 +8,8 @@ public class AmmoCount : MonoBehaviour {
     public int ammunition;
     public int reload;
 
+	public GameObject shot;
+	public GameObject birbLocation;
     public Text text;
     
 
@@ -16,8 +18,6 @@ public class AmmoCount : MonoBehaviour {
         ammunition = 2;
         reload = 2;
         text = GetComponent<Text>();
-        
-        
 	}
 
     void CheckKeys()
@@ -35,6 +35,10 @@ public class AmmoCount : MonoBehaviour {
                     text.text = "0";
                 }
                 StartCoroutine(Delay());
+
+				GameObject newShot = Instantiate (shot, birbLocation.transform.position
+					+ new Vector3(-8, 0, 0), Quaternion.identity) as GameObject;
+				Object.Destroy (newShot, 0.5f);
             }
         }
        

@@ -322,6 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammunition: 2
   reload: 2
+  shot: {fileID: 1626390309213908, guid: 2316e80ff6a2c4ba88a3bb1458f69585, type: 2}
   text: {fileID: 0}
 --- !u!1 &453880911
 GameObject:
