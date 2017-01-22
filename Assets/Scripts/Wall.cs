@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Wall : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Wall : MonoBehaviour
 	private int colorEmission;
 	private string shotTag;
 	private Renderer rend;
+	private Renderer birbRenderer;
 
     // Use this for initialization
     void Start()
@@ -20,6 +22,7 @@ public class Wall : MonoBehaviour
         map = GetComponentInParent<Map>();
 		rend = GetComponent<Renderer>();
         Material mat = rend.material;
+		birbRenderer = GameObject.Find ("Birb").GetComponentsInChildren<Renderer>()[0];
 
 		int emission = Random.Range(0, 3);
 
@@ -57,6 +60,7 @@ public class Wall : MonoBehaviour
 			Destroy (gameObject);
 		}
 
+		// Destroy wall if correct color shot hits wall
 		GameObject[] shots = GameObject.FindGameObjectsWithTag (shotTag);
 		foreach (GameObject shot in shots) {
 			foreach (Transform child in shot.transform) {
@@ -64,6 +68,11 @@ public class Wall : MonoBehaviour
 					Destroy (gameObject);
 				}
 			}
+		}
+
+		// Game over if bird touches wall
+		if (birbRenderer.bounds.Intersects (rend.bounds)) {
+			SceneManager.LoadScene ("GameOver");
 		}
 	}
 }
