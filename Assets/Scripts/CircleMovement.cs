@@ -4,39 +4,90 @@ using UnityEngine;
 
 public class CircleMovement : MonoBehaviour {
 
-	private static float MAX_AMPLITUDE = 3f;
-	private static float MIN_AMPLITUDE = 1.25f;
-	private static float MAX_FREQUENCY = 5f;
-	private static float MIN_FREQUENCY = 1f;
+	private static int MAX_AMPLITUDE = 5;
+	private static int MIN_AMPLITUDE = 1;
+	private static int MAX_FREQUENCY = 5;
+	private static int MIN_FREQUENCY = 1;
 
-	private float frequency;
-	private float amplitude;
+	private int trueFreq;
+	private int trueAmpl;
+
+	private int interFreq;
+	private int interAmpl;
+
 	private bool isGoingUp;
 
 	// Use this for initialization
 	void Start () {
-		frequency = 3;
-		amplitude = 3;
+		trueFreq = 1;
+		trueAmpl = 1;
+
+		interFreq = 1;
+		interAmpl = 1;
+
 		isGoingUp = true;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.UpArrow) && amplitude < MAX_AMPLITUDE) {
-			amplitude += 0.25f;
-		} else if (Input.GetKey (KeyCode.DownArrow) && amplitude > MIN_AMPLITUDE) {
-			amplitude -= 0.25f;
-		} else if (Input.GetKey (KeyCode.RightArrow) && frequency < MAX_FREQUENCY) {
-			frequency += 0.25f;
-		} else if (Input.GetKey (KeyCode.LeftArrow) && frequency > MIN_FREQUENCY) {
-			frequency -= 0.25f;
-		}
-
-		if (Mathf.Abs (transform.position.y) > amplitude) {
-			isGoingUp = !isGoingUp;
-		}
-
 		Vector3 direction = (isGoingUp) ? Vector3.up : Vector3.down;
-		transform.position +=  direction * frequency * Time.deltaTime;
+
+		if (Mathf.Abs (transform.position.y) > trueAmpl) {
+			transform.position = direction * trueAmpl;
+			isGoingUp = !isGoingUp;
+			return;
+		}
+
+		if (Mathf.Abs (transform.position.y) < MIN_AMPLITUDE) {
+			trueAmpl = interAmpl;
+			trueFreq = interFreq;
+		}
+
+		if (Input.GetKeyDown (KeyCode.UpArrow) && interAmpl < MAX_AMPLITUDE) {
+			interAmpl += 1;
+		} else if (Input.GetKeyDown (KeyCode.DownArrow) && interAmpl > MIN_AMPLITUDE) {
+			interAmpl -= 1;
+		} else if (Input.GetKeyDown (KeyCode.RightArrow) && interFreq < MAX_FREQUENCY) {
+			interFreq += 1;
+		} else if (Input.GetKeyDown (KeyCode.LeftArrow) && interFreq > MIN_FREQUENCY) {
+			interFreq -= 1;
+		}
+
+		transform.position += direction * trueAmpl * trueFreq * Time.deltaTime;
 	}
+//		float mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition).y;
+//		float sinWave = Mathf.Sin (Time.time * trueFreq) * trueAmpl;
+//
+//		transform.position = new Vector3 (transform.position.x, sinWave - mousePos, transform.position.z);
+
+
+//		transform.position = transform.up * sinWave;
+
+//		if (Input.GetKey (KeyCode.UpArrow) && interAmpl < MAX_AMPLITUDE) {
+//			interAmpl += 0.25f;
+//		} else if (Input.GetKey (KeyCode.DownArrow) && interAmpl > MIN_AMPLITUDE) {
+//			interAmpl -= 0.25f;
+//		} else if (Input.GetKey (KeyCode.RightArrow) && interFreq < MAX_FREQUENCY) {
+//			interFreq += 0.25f;
+//		} else if (Input.GetKey (KeyCode.LeftArrow) && interFreq > MIN_FREQUENCY) {
+//			interFreq -= 0.25f;
+//		}
+//
+//		if ((isGoingUp && transform.position.y > 0.1f) ||
+//			(!isGoingUp && transform.position.y < 0.1f)) {
+//			trueFreq = interFreq;
+//			trueAmpl = interAmpl;
+//		}
+//
+//		if (Mathf.Abs (transform.position.y) > trueAmpl) {
+//			isGoingUp = !isGoingUp;
+//			trueFreq = interFreq;
+//			trueAmpl = interAmpl;
+//		}
+//
+//		Vector3 direction = (isGoingUp) ? Vector3.up : Vector3.down;
+//		transform.position = direction * Mathf.Sin (elapsedTime * trueFreq) * trueAmpl;
+//
+//		elapsedTime += Time.deltaTime;
+//
 }
