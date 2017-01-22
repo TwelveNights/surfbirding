@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/_Scenes/MainMenu.unity
   - enabled: 1
     path: Assets/_Scenes/Instructions.unity
-  - enabled: 0
-    path: Assets/_Scenes/Eddie Zhou.unity
-  - enabled: 1
-    path: Assets/_Scenes/GameOver.unity
   - enabled: 1
     path: Assets/_Scenes/WaveGame.unity
+  - enabled: 1
+    path: Assets/_Scenes/GameWon.unity
+  - enabled: 1
+    path: Assets/_Scenes/GameOver.unity
