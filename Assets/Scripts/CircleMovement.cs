@@ -23,7 +23,7 @@ public class CircleMovement : MonoBehaviour {
 	void Update () {
 		float currMousePos = Camera.main.ScreenToWorldPoint (Input.mousePosition).y;
 		float increment = Mathf.Sin (Time.time) * currentAmplitude + currMousePos;
-		transform.position = Vector3.up * increment;
+		transform.position = new Vector3(-8 , increment);
 
 		currentAmplitude += AMPLITUDE_STEP;
 		currentFrequency += FREQUENCY_STEP;

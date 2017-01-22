@@ -15,7 +15,7 @@ public class WallGenerator : MonoBehaviour {
     void Update () {
         if (Random.value < probability)
         {
-            Instantiate(wall, new Vector3(GetComponent<Map>().initialX, GetComponent<Map>().yHeight), Quaternion.identity, gameObject.transform);
+            Instantiate(wall, new Vector3(GetComponent<Map>().initialX, 0), Quaternion.identity, gameObject.transform);
         }
 	}
 }
