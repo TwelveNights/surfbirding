@@ -18,7 +18,7 @@ public class CollisionIndicator : MonoBehaviour {
         Vector2 bounds = map.getEdgeBound(currentX);
         if (bounds[0] > gameObject.transform.position.y || bounds[1] < gameObject.transform.position.y)
         {
-            SceneManager.LoadScene("MainMenu");
+            SceneManager.LoadScene("GameOver");
         }
 	}
 }
