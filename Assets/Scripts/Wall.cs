@@ -7,6 +7,9 @@ public class Wall : MonoBehaviour
     private LineRenderer lr;
     private Map map;
     private float index = 0;
+	private int colorEmission;
+	private string shotTag;
+	private Renderer rend;
 
     // Use this for initialization
     void Start()
@@ -15,41 +18,52 @@ public class Wall : MonoBehaviour
         lr.numPositions = 2;
 
         map = GetComponentInParent<Map>();
-        Renderer renderer = GetComponent<Renderer>();
-        Material mat = renderer.material;
+		rend = GetComponent<Renderer>();
+        Material mat = rend.material;
 
-        int emission = Random.Range(0, 3);
+		int emission = Random.Range(0, 3);
 
-        switch (emission)
+		switch (emission)
         {
-        case 0:
-                mat.SetColor("_EmissionColor", Color.red);
-                break;
-        case 1:
-                mat.SetColor("_EmissionColor", Color.green);
-                break;
-        case 2:
-                mat.SetColor("_EmissionColor", Color.blue);
-                break;
+		case 0:
+			mat.SetColor ("_EmissionColor", Color.red);
+			shotTag = "RedShot";
+            break;
+		case 1:
+			mat.SetColor ("_EmissionColor", Color.green);
+			shotTag = "GreenShot";
+            break;
+		case 2:
+			mat.SetColor ("_EmissionColor", Color.blue);
+			shotTag = "BlueShot";
+            break;
         }
     }
 
     // Update is called once per frame
     void Update()
-    {
-        Vector2 bounds = map.getEdgeBound(map.time - Mathf.FloorToInt(index));
+	{
+		Vector2 bounds = map.getEdgeBound (map.time - Mathf.FloorToInt (index));
 
-        Transform t = gameObject.transform;
-        t.position = new Vector3(map.initialX - index, 0);
+		Transform t = gameObject.transform;
+		t.position = new Vector3 (map.initialX - index, 0);
        
-        Vector3[] positions = new Vector3[2] { new Vector3(0, bounds[0] + 1), new Vector3(0, bounds[1] - 1) };
-        lr.SetPositions(positions);
+		Vector3[] positions = new Vector3[2] { new Vector3 (0, bounds [0] + 1), new Vector3 (0, bounds [1] - 1) };
+		lr.SetPositions (positions);
 
-        index += .05f; 
+		index += .05f; 
 
-        if (index > 25)
-        {
-            Destroy(gameObject);
-        }
-    }
+		if (index > 25) {
+			Destroy (gameObject);
+		}
+
+		GameObject[] shots = GameObject.FindGameObjectsWithTag (shotTag);
+		foreach (GameObject shot in shots) {
+			foreach (Transform child in shot.transform) {
+				if (child.GetComponent<Renderer> ().bounds.Intersects (rend.bounds)) {
+					Destroy (gameObject);
+				}
+			}
+		}
+	}
 }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ShotBehaviour : MonoBehaviour {
 
-	private float scale = 0.0f;
-
 	// Use this for initialization
 	void Start () {
 		StartCoroutine(Enlarge());
@@ -15,25 +13,21 @@ public class ShotBehaviour : MonoBehaviour {
 	void Update () {
 		
 	}
-
-	// This method fades only the alpha.
+		
 	IEnumerator Enlarge () {
-
-		// Loop until aplha is below zero (completely invisalbe)
-		while (scale < 1.0f) {
-			// Reduce alpha by fadeSpeed amount.
-			transform.localScale += new Vector3(1f, 1f, 0) * Time.deltaTime;
-			scale += 0.01f;
+		while (true) {
+			transform.localScale += new Vector3(0.4f, 0.4f, 0) * Time.deltaTime;
+			transform.localPosition += new Vector3 (2f, 0, 0) * Time.deltaTime;
 
 			yield return null;
 		}
 	}
-
-	void OnCollisionEnter2D(Collision2D collision) {
-		Collider2D collider = collision.collider;
-
-		if(collider.gameObject.CompareTag("Wall")) { 
-			Destroy (collider.gameObject);
-		}
-	}
+//
+//	void OnTriggerEnter2D(Collision2D collision) {
+//		Collider2D other = collision.collider;
+//
+//		if(other.gameObject.CompareTag("Wall")) { 
+//			Destroy (other.gameObject);
+//		}
+//	}
 }
