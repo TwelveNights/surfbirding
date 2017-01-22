@@ -64,7 +64,6 @@ public class AmmoCount : MonoBehaviour {
 
     IEnumerator Delay()
     {
-        print(Time.time);
         yield return new WaitForSecondsRealtime(reload);
 
         ammunition++;
@@ -77,7 +76,6 @@ public class AmmoCount : MonoBehaviour {
         {
             text.text = "2";
         }
-        print(Time.time);
     }
 	
 	// Update is called once per frame
