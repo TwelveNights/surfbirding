@@ -9,9 +9,9 @@ public class ChangeColor : MonoBehaviour {
     public int pos = 0;
     
     public static Color[] colors = new Color[3];
-    int numColors = ChangeColor.colors.Length;
-    Color b;
+
     Color r;
+    Color b;
     Color g;
 
     public float t = 1;
@@ -50,5 +50,10 @@ public class ChangeColor : MonoBehaviour {
 //            color = Color.Lerp(color, colors[pos], t);
             color = colors[pos];
         }
+    }
+
+    public Color getColor()
+    {
+        return color;
     }
 }

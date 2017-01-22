@@ -15,6 +15,23 @@ public class Wall : MonoBehaviour
         lr.numPositions = 2;
 
         map = GetComponentInParent<Map>();
+        Renderer renderer = GetComponent<Renderer>();
+        Material mat = renderer.material;
+
+        int emission = Random.Range(0, 3);
+
+        switch (emission)
+        {
+        case 0:
+                mat.SetColor("_EmissionColor", Color.red);
+                break;
+        case 1:
+                mat.SetColor("_EmissionColor", Color.green);
+                break;
+        case 2:
+                mat.SetColor("_EmissionColor", Color.blue);
+                break;
+        }
     }
 
     // Update is called once per frame
