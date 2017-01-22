@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class AmmoCount : MonoBehaviour {
     public int ammunition;
     public int reload;
-    public int maxAmmo;
 
     public GameObject[] colorShots;
 
@@ -17,7 +16,7 @@ public class AmmoCount : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ammunition = maxAmmo;
+        ammunition = 3;
         reload = 2;
         text = GetComponent<Text>();
     }
