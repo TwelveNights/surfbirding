@@ -91,6 +91,11 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &199898666 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1732677484318776, guid: 8207c76fb7b21014084e95ffbaeebc9b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1414995102}
 --- !u!1 &205194570
 GameObject:
   m_ObjectHideFlags: 0
@@ -322,7 +327,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammunition: 2
   reload: 2
-  shot: {fileID: 1626390309213908, guid: 2316e80ff6a2c4ba88a3bb1458f69585, type: 2}
+  blueShot: {fileID: 1626390309213908, guid: 2316e80ff6a2c4ba88a3bb1458f69585, type: 2}
+  redShot: {fileID: 1910835354654652, guid: 7c52a5400a0014f55be3de9dcc72fb90, type: 2}
+  greenShot: {fileID: 1715518762126582, guid: e9b313352af5f4d62bb6c584847e85b8, type: 2}
+  birbLocation: {fileID: 199898666}
+  rectTransform: {fileID: 1692853070}
   text: {fileID: 0}
 --- !u!1 &453880911
 GameObject:
