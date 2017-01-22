@@ -22,7 +22,7 @@ public class Map : MonoBehaviour {
 
     void Awake()
     {
-        Destroy(GameObject.Find("Menu Song"));
+        Destroy(GameObject.Find("Theme"));
     }
 
     // Use this for initialization
