@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838833537bda06a41b1073dabe6eb982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wall: {fileID: 1782950939798318, guid: ee42723bdb83d6942b1f7c028e7b5c7f, type: 2}
+  wall: {fileID: 1043360131004110, guid: 5eb760787f8a6476bac6342e5c543ee0, type: 2}
   probability: 0.005
 --- !u!114 &114490603811072742
 MonoBehaviour:
@@ -146,12 +146,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1768718dc8803eb4cbc9aea4864b282f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  edge: {fileID: 0}
+  edge: {fileID: 1031639310088954, guid: 4c0be7c39bd06b2438a5e0c494407d5d, type: 2}
   color: {r: 0, g: 1, b: 1, a: 1}
   amplitude: 16
   resolution: 16
   tunnelWidth: 5
-  initialX: 10
+  initialX: 14
   initialY: 3
   time: 0
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 82568332701669178}

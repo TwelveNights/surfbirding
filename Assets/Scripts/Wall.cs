@@ -8,7 +8,6 @@ public class Wall : MonoBehaviour
     private LineRenderer lr;
     private Map map;
     private float index = 0;
-	private int colorEmission;
 	private string shotTag;
 	private Renderer rend;
 	private Renderer birbRenderer;
@@ -21,12 +20,11 @@ public class Wall : MonoBehaviour
 
         map = GetComponentInParent<Map>();
 		rend = GetComponent<Renderer>();
+
         Material mat = rend.material;
 		birbRenderer = GameObject.Find ("Birb").GetComponentsInChildren<Renderer>()[0];
 
-		int emission = Random.Range(0, 3);
-
-		switch (emission)
+		switch (Random.Range(0, 3))
         {
 		case 0:
 			mat.SetColor ("_EmissionColor", Color.red);
@@ -51,7 +49,7 @@ public class Wall : MonoBehaviour
 		Transform t = gameObject.transform;
 		t.position = new Vector3 (map.initialX - index, 0);
        
-		Vector3[] positions = new Vector3[2] { new Vector3 (0, bounds [0] + 1), new Vector3 (0, bounds [1] - 1) };
+		Vector3[] positions = new Vector3[2] { new Vector3 (0, bounds [0] + .25f), new Vector3 (0, bounds [1] - .25f) };
 		lr.SetPositions (positions);
 
 		index += .05f; 
