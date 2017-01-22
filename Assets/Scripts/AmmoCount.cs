@@ -48,7 +48,7 @@ public class AmmoCount : MonoBehaviour {
                 }
 
                 GameObject newShot = Instantiate (colorShot, birbLocation.transform.position
-                    , Quaternion.identity) as GameObject;
+					+ Vector3.right, Quaternion.identity) as GameObject;
                 Object.Destroy (newShot, 0.9f);
 
                 audioSource.Play ();
