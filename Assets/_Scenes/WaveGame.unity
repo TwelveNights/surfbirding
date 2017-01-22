@@ -133,7 +133,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4022227683522106, guid: 64c059bb802d8334a9ccd2bc40fc7dd8, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 64c059bb802d8334a9ccd2bc40fc7dd8, type: 2}
@@ -438,11 +438,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammunition: 2
   reload: 2
-  maxAmmo: 0
   colorShots:
-  - {fileID: 1079340055965412, guid: bf6693ade10b14f46b67a5d089e5ca91, type: 2}
-  - {fileID: 1079340055965412, guid: 3e2b2efcd1f184f229572c1d545051a5, type: 2}
-  - {fileID: 1079340055965412, guid: 3d4bd988418bb42cfbd366d664a5c7c3, type: 2}
+  - {fileID: 1372772337456804, guid: 1b37780beff944848baa1185414407b0, type: 2}
+  - {fileID: 1372772337456804, guid: d4e82e04085f346dbae17bbc599c0628, type: 2}
+  - {fileID: 1372772337456804, guid: 1d42477ba7bf64a869da1090c2aa6bc8, type: 2}
   birbLocation: {fileID: 199898666}
   rectTransform: {fileID: 1692853070}
   text: {fileID: 0}
@@ -1177,7 +1176,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1414995102
 Prefab:
@@ -1323,7 +1322,7 @@ RectTransform:
   - {fileID: 205194571}
   - {fileID: 1744956388}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
