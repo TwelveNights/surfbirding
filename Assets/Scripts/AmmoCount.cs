@@ -8,8 +8,12 @@ public class AmmoCount : MonoBehaviour {
     public int ammunition;
     public int reload;
 
-	public GameObject shot;
+	public GameObject blueShot;
+	public GameObject redShot;
+	public GameObject greenShot;
+
 	public GameObject birbLocation;
+	public RectTransform rectTransform;
     public Text text;
     
 
@@ -36,8 +40,20 @@ public class AmmoCount : MonoBehaviour {
                 }
                 StartCoroutine(Delay());
 
-				GameObject newShot = Instantiate (shot, birbLocation.transform.position
-					+ new Vector3(-8, 0, 0), Quaternion.identity) as GameObject;
+				Color color = rectTransform.GetComponent<Image> ().color;
+				GameObject newShot;
+				if (color == Color.blue) {
+					newShot = Instantiate (blueShot, birbLocation.transform.position
+					+ new Vector3 (-8, 0, 0), Quaternion.identity) as GameObject;
+				} else if (color == Color.red) {
+					newShot = Instantiate (redShot, birbLocation.transform.position
+					+ new Vector3 (-8, 0, 0), Quaternion.identity) as GameObject;
+				} else if (color == Color.green) {
+					newShot = Instantiate (greenShot, birbLocation.transform.position
+					+ new Vector3 (-8, 0, 0), Quaternion.identity) as GameObject;
+				} else {
+					return;
+				}
 				Object.Destroy (newShot, 0.5f);
             }
         }
