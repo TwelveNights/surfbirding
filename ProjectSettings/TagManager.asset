@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BlueShot
+  - Wall
+  - GreenShot
+  - RedShot
   layers:
   - Default
   - TransparentFX
@@ -38,6 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Shot
+    uniqueID: 364638101
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

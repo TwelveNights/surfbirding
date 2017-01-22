@@ -146,12 +146,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1768718dc8803eb4cbc9aea4864b282f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  edge: {fileID: 1031639310088954, guid: 4c0be7c39bd06b2438a5e0c494407d5d, type: 2}
+  edge: {fileID: 0}
   color: {r: 0, g: 1, b: 1, a: 1}
   amplitude: 16
   resolution: 16
-  yHeight: 3
   tunnelWidth: 5
   initialX: 10
+  initialY: 3
   time: 0
   audioSource: {fileID: 0}
