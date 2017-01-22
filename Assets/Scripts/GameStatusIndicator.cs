@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CollisionIndicator : MonoBehaviour {
+public class GameStatusIndicator: MonoBehaviour {
 
     private Map map;
 
@@ -19,6 +19,11 @@ public class CollisionIndicator : MonoBehaviour {
         if (bounds[0] > gameObject.transform.position.y || bounds[1] < gameObject.transform.position.y)
         {
             SceneManager.LoadScene("GameOver");
+        }
+        
+        else if (map.gameWon())
+        {
+            SceneManager.LoadScene("GameWon");
         }
 	}
 }
