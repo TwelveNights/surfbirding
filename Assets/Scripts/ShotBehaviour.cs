@@ -22,12 +22,4 @@ public class ShotBehaviour : MonoBehaviour {
 			yield return null;
 		}
 	}
-//
-//	void OnTriggerEnter2D(Collision2D collision) {
-//		Collider2D other = collision.collider;
-//
-//		if(other.gameObject.CompareTag("Wall")) { 
-//			Destroy (other.gameObject);
-//		}
-//	}
 }
