@@ -151,7 +151,7 @@ MonoBehaviour:
   amplitude: 16
   resolution: 16
   tunnelWidth: 5
-  initialX: 10
+  initialX: 14
   initialY: 3
   time: 0
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 82568332701669178}

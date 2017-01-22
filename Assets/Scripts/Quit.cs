@@ -3,7 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Start_Button : MonoBehaviour {
+public class Quit : MonoBehaviour
+{
+
     public Button button;
 
     void Start()
@@ -14,7 +16,7 @@ public class Start_Button : MonoBehaviour {
 
     void TaskOnClick()
     {
-        SceneManager.LoadScene("WaveGame");
+        Application.Quit();
     }
 
     void Destroy()

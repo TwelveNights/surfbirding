@@ -5,14 +5,18 @@ using UnityEngine;
 public class Edge : MonoBehaviour {
 
     public float[] waveForm;
-    public float width; // .1f
+    public float width = .5f;
+
+    private Map map;
+    private LineRenderer lr;
 
     // Use this for initialization
     void Start()
     {
-        Map map = GetComponentInParent<Map>();
+        map = GetComponentInParent<Map>();
+        lr = GetComponent<LineRenderer>();
+
         AudioSource audioSource = map.audioSource;
-        LineRenderer lr = GetComponent<LineRenderer>();
 
         int resolution = map.resolution;
 
@@ -47,5 +51,6 @@ public class Edge : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        lr.startColor = lr.endColor = map.color;
     }
 }

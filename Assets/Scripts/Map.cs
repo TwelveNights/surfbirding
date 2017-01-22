@@ -9,8 +9,8 @@ public class Map : MonoBehaviour {
     private GameObject bot;
 
     public Color color = Color.cyan;
-    public int amplitude; // 16
-    public int resolution; // 16
+    public int amplitude = 16; // 16
+    public int resolution = 16; // 16
 
     public int tunnelWidth = 5;
     public int initialX = 14; // 14
@@ -43,6 +43,7 @@ public class Map : MonoBehaviour {
 
         time = audioSource.timeSamples / resolution * 2;
         t.position = new Vector3(initialX - time, transform.position.y);
+
     }
 
     public Vector2 getEdgeBound(int curr)
