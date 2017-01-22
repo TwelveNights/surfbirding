@@ -20,6 +20,11 @@ public class Map : MonoBehaviour {
 
     public AudioSource audioSource;
 
+    void Awake()
+    {
+        Destroy(GameObject.Find("Menu Song"));
+    }
+
     // Use this for initialization
     void Start () {
 
