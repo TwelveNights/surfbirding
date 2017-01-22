@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class AmmoCount : MonoBehaviour {
     public int ammunition;
     public int reload;
+    public int maxAmmo;
 
 	public GameObject[] colorShots;
 
@@ -17,7 +18,8 @@ public class AmmoCount : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ammunition = 2;
+        maxAmmo = 3;
+        ammunition = maxAmmo;
         reload = 2;
         text = GetComponent<Text>();
 	}
@@ -28,10 +30,10 @@ public class AmmoCount : MonoBehaviour {
         {
 			if (ammunition > 0) {
 				ammunition--;
-				if (ammunition == 1) {
-					text.text = "1";
-				} else if (ammunition == 0) {
+				if (ammunition == 0) {
 					text.text = "0";
+				} else {
+                    text.text = ammunition.ToString() ;
 				}
 				StartCoroutine (Delay ());
 
@@ -64,20 +66,15 @@ public class AmmoCount : MonoBehaviour {
 
     IEnumerator Delay()
     {
-        print(Time.time);
+//        print(Time.time);
         yield return new WaitForSecondsRealtime(reload);
 
         ammunition++;
 
-        if (ammunition == 1)
-        {
-            text.text = "1";
-        }
-        else if (ammunition == 2)
-        {
-            text.text = "2";
-        }
-        print(Time.time);
+        text.text = ammunition.ToString();
+
+
+ //       print(Time.time);
     }
 	
 	// Update is called once per frame
