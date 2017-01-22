@@ -14,6 +14,6 @@ public class Start_Button : MonoBehaviour {
 
     void TaskOnClick()
     {
-        SceneManager.LoadScene("Eddie Zhou");
+		SceneManager.LoadScene("WaveGame");
     }
 }
