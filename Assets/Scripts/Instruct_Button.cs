@@ -5,17 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class Instruct_Button : MonoBehaviour
 {
-
-    public Button instruction_button;
+    public Button button;
 
     void Start()
     {
-        instruction_button = GetComponent<Button>();
-        instruction_button.onClick.AddListener(TaskOnClick);
+        button = GetComponent<Button>();
+        button.onClick.AddListener(TaskOnClick);
     }
 
     void TaskOnClick()
     {
         SceneManager.LoadScene("Instructions");
+    }
+
+    void Destroy()
+    {
+        button.onClick.RemoveListener(TaskOnClick);
     }
 }

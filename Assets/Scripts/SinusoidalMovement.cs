@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircleMovement : MonoBehaviour {
+public class SinusoidalMovement : MonoBehaviour {
 
 	// Constants defining Amplitude and Frequency
 	private static float AMPLITUDE_STEP = 0.001f;
