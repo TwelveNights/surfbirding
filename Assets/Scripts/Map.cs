@@ -4,74 +4,48 @@ using UnityEngine;
 
 public class Map : MonoBehaviour {
 
-    private int resolution = 18;
-    private float[] waveForm;
+    public GameObject edge;
+    private GameObject top;
+    private GameObject bot;
 
-    [SerializeField]
-    private int amplitude = 50;
-    [SerializeField]
-    private bool top = false;
+    public Color color = Color.cyan;
+    public int amplitude; // 16
+    public int resolution; // 16
 
-    private AudioSource audioSource;
+    public int yHeight = 0;
+    public int tunnelWidth = 5;
+    public int initialX = 14; // 14
 
+    public int time = 0;
+
+    public AudioSource audioSource;
 
     // Use this for initialization
-    void Start()
-    {
-        audioSource = GetComponentInParent<AudioSource>();
-        LineRenderer lr = GetComponent<LineRenderer>();
+    void Start () {
 
+        audioSource = GetComponent<AudioSource>();
+        Vector3 pos = gameObject.transform.position;
+
+        top = Instantiate(edge, new Vector3(pos.x, pos.y + yHeight), Quaternion.identity, gameObject.transform);
+        bot = Instantiate(edge, new Vector3(pos.x, pos.y + yHeight - tunnelWidth), Quaternion.identity, gameObject.transform);
+ 
         resolution = audioSource.clip.frequency / resolution;
-
-        float[] samples = new float[audioSource.clip.samples * audioSource.clip.channels];
-
-        audioSource.clip.GetData(samples, 0);
-        waveForm = new float[(samples.Length / resolution)];
-
-        Vector3[] points = new Vector3[waveForm.Length];
-   
-        for (int i = 0; i < waveForm.Length; i++)
-        {
-            waveForm[i] = 0;
-
-            for (int ii = 0; ii < resolution; ii++)
-            {
-                waveForm[i] += Mathf.Abs(samples[(i * resolution) + ii]);
-            }
-
-            waveForm[i] /= resolution;
-
-            Vector3 newPoint = new Vector3(i, waveForm[i] * amplitude, 0);
-            points[i] = newPoint;
-        }
-
-        lr.numPositions = waveForm.Length;
-        lr.SetPositions(points);
-        lr.startColor = Color.cyan;
-        lr.endColor = Color.cyan;
-        lr.startWidth = .2f;
-        lr.endWidth = .2f;
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        Transform t = GetComponent<Transform>();
+    void Update () {
+        Transform t = gameObject.transform;
 
-        int current = audioSource.timeSamples / resolution * 2;
-        t.position = new Vector3(-current - 9, transform.position.y, transform.position.z);
+        time = audioSource.timeSamples / resolution * 2;
+        t.position = new Vector3(initialX - time, transform.position.y);
     }
 
-    public bool withinWalls(float y)
+    public Vector2 getEdgeBound(int curr)
     {
-        int current = audioSource.timeSamples / resolution * 2;
-        if (top)
-        {
-            return y < waveForm[current] * amplitude;
-        }
-        else
-        {
-            return y > waveForm[current] * amplitude;
-        }
+        Edge tEdge = top.GetComponent<Edge>();
+        Edge bEdge = bot.GetComponent<Edge>();
+
+        return new Vector2(tEdge.waveForm[curr] * amplitude - tunnelWidth, bEdge.waveForm[curr] * amplitude);
     }
 }
+    
