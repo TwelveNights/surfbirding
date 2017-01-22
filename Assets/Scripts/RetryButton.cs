@@ -15,6 +15,6 @@ public class RetryButton : MonoBehaviour {
 
 	void TaskOnClick()
 	{
-		SceneManager.LoadScene("Eddie Zhou");
+		SceneManager.LoadScene("WaveGame");
 	}
 }
