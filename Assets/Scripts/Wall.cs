@@ -7,10 +7,12 @@ public class Wall : MonoBehaviour
 {
     private LineRenderer lr;
     private Map map;
-    private float index = 0;
-	private string shotTag;
+
 	private Renderer rend;
 	private Renderer birbRenderer;
+
+    private float index = 0;
+	private string shotTag;
 
     // Use this for initialization
     void Start()

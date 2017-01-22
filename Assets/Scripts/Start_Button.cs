@@ -14,7 +14,7 @@ public class Start_Button : MonoBehaviour {
 
     void TaskOnClick()
     {
-		SceneManager.LoadScene("WaveGame");
+        SceneManager.LoadScene("WaveGame");
     }
 
     void Destroy()

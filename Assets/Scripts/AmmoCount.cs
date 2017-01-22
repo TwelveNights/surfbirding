@@ -8,19 +8,18 @@ public class AmmoCount : MonoBehaviour {
     public int ammunition;
     public int reload;
 
-	public GameObject[] colorShots;
+    public GameObject[] colorShots;
 
-	public GameObject birbLocation;
-	public RectTransform rectTransform;
+    public GameObject birbLocation;
+    public RectTransform rectTransform;
     public Text text;
-    
 
 	// Use this for initialization
 	void Start () {
-        ammunition = 2;
+        ammunition = 3;
         reload = 2;
         text = GetComponent<Text>();
-	}
+    }
 
     void CheckKeys()
     {
@@ -28,35 +27,31 @@ public class AmmoCount : MonoBehaviour {
         {
 			if (ammunition > 0) {
 				ammunition--;
-				if (ammunition == 1) {
-					text.text = "1";
-				} else if (ammunition == 0) {
-					text.text = "0";
-				}
+                text.text = ammunition.ToString() ;
 				StartCoroutine (Delay ());
 
-				Color color = rectTransform.GetComponent<Image> ().color;
-				GameObject colorShot;
-				AudioSource audioSource;
+                Color color = rectTransform.GetComponent<Image> ().color;
+                GameObject colorShot;
+                AudioSource audioSource;
 
-				if (color == Color.blue) {
-					colorShot = colorShots[0];
-					audioSource = GetComponents<AudioSource>()[0];
-				} else if (color == Color.green) {
-					colorShot = colorShots[1];
-					audioSource = GetComponents<AudioSource>()[1];
-				} else if (color == Color.red) {
-					colorShot = colorShots[2];
-					audioSource = GetComponents<AudioSource>()[2];
-				} else {
-					return;
-				}
+                if (color == Color.blue) {
+                    colorShot = colorShots[0];
+                    audioSource = GetComponents<AudioSource>()[0];
+                } else if (color == Color.green) {
+                    colorShot = colorShots[1];
+                    audioSource = GetComponents<AudioSource>()[1];
+                } else if (color == Color.red) {
+                    colorShot = colorShots[2];
+                    audioSource = GetComponents<AudioSource>()[2];
+                } else {
+                    return;
+                }
 
-				GameObject newShot = Instantiate (colorShot, birbLocation.transform.position
-					, Quaternion.identity) as GameObject;
-				Object.Destroy (newShot, 0.9f);
+                GameObject newShot = Instantiate (colorShot, birbLocation.transform.position
+                    , Quaternion.identity) as GameObject;
+                Object.Destroy (newShot, 0.9f);
 
-				audioSource.Play ();
+                audioSource.Play ();
             }
         }
        
@@ -68,20 +63,11 @@ public class AmmoCount : MonoBehaviour {
 
         ammunition++;
 
-        if (ammunition == 1)
-        {
-            text.text = "1";
-        }
-        else if (ammunition == 2)
-        {
-            text.text = "2";
-        }
+        text.text = ammunition.ToString();
     }
-	
-	// Update is called once per frame
-	void Update () {
+    
+    // Update is called once per frame
+    void Update () {
         CheckKeys();
-
-
     }
 }

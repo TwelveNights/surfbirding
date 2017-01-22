@@ -32,20 +32,8 @@ public class HUD : MonoBehaviour {
        
     }
 
-
-
-
-	
-	// Update is called once per frame
-	void Update () {
-        
-        //        colorz = image.color;
-       
-
+    // Update is called once per frame
+    void Update () {
         image.color = changeColor.color;
-        //        cRend.material.color = changeColor.color;
-
-        //        GetComponent<Renderer>().material.color = cRend.material.color;
-
     }
 }
