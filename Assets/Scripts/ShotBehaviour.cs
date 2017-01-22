@@ -28,4 +28,12 @@ public class ShotBehaviour : MonoBehaviour {
 			yield return null;
 		}
 	}
+
+	void OnCollisionEnter2D(Collision2D collision) {
+		Collider2D collider = collision.collider;
+
+		if(collider.gameObject.CompareTag("Wall")) { 
+			Destroy (collider.gameObject);
+		}
+	}
 }
