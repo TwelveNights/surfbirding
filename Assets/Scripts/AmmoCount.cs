@@ -28,33 +28,30 @@ public class AmmoCount : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (ammunition > 0)
-            {
-                ammunition--;
-                if (ammunition == 1)
-                {
-                    text.text = "1";
-                } else if (ammunition == 0)
-                {
-                    text.text = "0";
-                }
-                StartCoroutine(Delay());
+			if (ammunition > 0) {
+				ammunition--;
+				if (ammunition == 1) {
+					text.text = "1";
+				} else if (ammunition == 0) {
+					text.text = "0";
+				}
+				StartCoroutine (Delay ());
 
 				Color color = rectTransform.GetComponent<Image> ().color;
-				GameObject newShot;
+				GameObject colorShot;
 				if (color == Color.blue) {
-					newShot = Instantiate (blueShot, birbLocation.transform.position
-					+ new Vector3 (-8, 0, 0), Quaternion.identity) as GameObject;
-				} else if (color == Color.red) {
-					newShot = Instantiate (redShot, birbLocation.transform.position
-					+ new Vector3 (-8, 0, 0), Quaternion.identity) as GameObject;
+					colorShot = blueShot;
 				} else if (color == Color.green) {
-					newShot = Instantiate (greenShot, birbLocation.transform.position
-					+ new Vector3 (-8, 0, 0), Quaternion.identity) as GameObject;
+					colorShot = greenShot;
+				} else if (color == Color.red) {
+					colorShot = redShot;
 				} else {
 					return;
 				}
-				Object.Destroy (newShot, 0.5f);
+
+				GameObject newShot = Instantiate (colorShot, birbLocation.transform.position
+					, Quaternion.identity) as GameObject;
+				Object.Destroy (newShot, 0.9f);
             }
         }
        
