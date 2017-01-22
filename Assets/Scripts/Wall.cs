@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
+    private LineRenderer lr;
+    private Map map;
+    private float index = 0;
+
     // Use this for initialization
     void Start()
     {
+        lr = GetComponent<LineRenderer>();
+        lr.numPositions = 2;
+
+        map = GetComponentInParent<Map>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        LineRenderer lr = GetComponent<LineRenderer>();
-        Map map = GameObject.Find("Map").GetComponent<Map>();
-        Vector2 timing = map.getEdgeBound();
+        Vector2 bounds = map.getEdgeBound(map.time - Mathf.FloorToInt(index));
 
         Transform t = gameObject.transform;
-    
-        Vector3 bot = lr.GetPosition(0);
-        Vector3 top = lr.GetPosition(1);
-
-        bot[1] = timing[0];
-        top[1] = timing[1];
-
-        Vector3[] positions = new Vector3[2];
-        positions[0] = bot;
-        positions[1] = top;
-
+        t.position = new Vector3(map.initialX - index, map.yHeight);
+       
+        Vector3[] positions = new Vector3[2] { new Vector3(0, bounds[0] + 1), new Vector3(0, bounds[1] - 1) };
         lr.SetPositions(positions);
 
-        if (gameObject.transform.position.x < -14)
+        index += .05f; 
+
+        if (index > 25)
         {
             Destroy(gameObject);
         }

@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4022227683522106}
   - component: {fileID: 82568332701669178}
-  - component: {fileID: 114546322848174266}
   - component: {fileID: 114490603811072742}
+  - component: {fileID: 114486565010585312}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -122,6 +122,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114486565010585312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709644501951158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838833537bda06a41b1073dabe6eb982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wall: {fileID: 1782950939798318, guid: ee42723bdb83d6942b1f7c028e7b5c7f, type: 2}
+  probability: 0.005
 --- !u!114 &114490603811072742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,20 +147,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   edge: {fileID: 1031639310088954, guid: 4c0be7c39bd06b2438a5e0c494407d5d, type: 2}
-  amplitude: 50
   color: {r: 0, g: 1, b: 1, a: 1}
-  resolution: 18
-  width: 0.1
+  amplitude: 16
+  resolution: 16
+  yHeight: 3
+  tunnelWidth: 5
+  initialX: 14
+  time: 0
   audioSource: {fileID: 0}
---- !u!114 &114546322848174266
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1709644501951158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 838833537bda06a41b1073dabe6eb982, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wall: {fileID: 1782950939798318, guid: ee42723bdb83d6942b1f7c028e7b5c7f, type: 2}

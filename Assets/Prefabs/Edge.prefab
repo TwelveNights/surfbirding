@@ -52,6 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565a6fafb8f9e734da6a1acf99ad1310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveForm: []
+  width: 0.5
 --- !u!120 &120953302062746144
 LineRenderer:
   m_ObjectHideFlags: 1

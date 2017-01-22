@@ -5,6 +5,7 @@ using UnityEngine;
 public class Edge : MonoBehaviour {
 
     public float[] waveForm;
+    public float width; // .1f
 
     // Use this for initialization
     void Start()
@@ -37,10 +38,10 @@ public class Edge : MonoBehaviour {
             points[i] = newPoint;
         }
 
+        lr.startColor = lr.endColor = map.color;
+        lr.startWidth = lr.endWidth = width;
         lr.numPositions = waveForm.Length;
         lr.SetPositions(points);
-        lr.startColor = lr.endColor = map.color;
-        lr.startWidth = lr.endWidth = map.width;
     }
 
     // Update is called once per frame
