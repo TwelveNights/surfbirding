@@ -45,7 +45,12 @@ public class Map : MonoBehaviour {
         Edge tEdge = top.GetComponent<Edge>();
         Edge bEdge = bot.GetComponent<Edge>();
 
-        return new Vector2(tEdge.waveForm[curr] * amplitude - tunnelWidth, bEdge.waveForm[curr] * amplitude);
+        if (curr < 0 || curr > tEdge.waveForm.Length)
+        {
+            return new Vector2(float.MinValue, float.MaxValue);
+        }
+
+        return new Vector2(tEdge.waveForm[curr] * amplitude - tunnelWidth + yHeight, bEdge.waveForm[curr] * amplitude + yHeight);
     }
 }
     

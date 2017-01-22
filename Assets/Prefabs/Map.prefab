@@ -152,6 +152,6 @@ MonoBehaviour:
   resolution: 16
   yHeight: 3
   tunnelWidth: 5
-  initialX: 14
+  initialX: 10
   time: 0
   audioSource: {fileID: 0}
