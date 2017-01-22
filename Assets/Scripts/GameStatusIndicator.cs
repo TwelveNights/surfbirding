@@ -7,13 +7,13 @@ public class GameStatusIndicator: MonoBehaviour {
 
     private Map map;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         map = GameObject.Find("Map").GetComponent<Map>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+    
+    // Update is called once per frame
+    void Update () {
         int currentX = map.time - map.initialX * 2;
         Vector2 bounds = map.getEdgeBound(currentX);
         if (bounds[0] > gameObject.transform.position.y || bounds[1] < gameObject.transform.position.y)
@@ -25,5 +25,5 @@ public class GameStatusIndicator: MonoBehaviour {
         {
             SceneManager.LoadScene("GameWon");
         }
-	}
+    }
 }

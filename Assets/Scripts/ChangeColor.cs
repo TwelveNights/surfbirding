@@ -20,7 +20,7 @@ public class ChangeColor : MonoBehaviour {
         color = Color.blue;
         
     }
-		
+        
     // Update is called once per frame
     void Update()
     {
