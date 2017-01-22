@@ -8,9 +8,7 @@ public class AmmoCount : MonoBehaviour {
     public int ammunition;
     public int reload;
 
-	public GameObject blueShot;
-	public GameObject redShot;
-	public GameObject greenShot;
+	public GameObject[] colorShots;
 
 	public GameObject birbLocation;
 	public RectTransform rectTransform;
@@ -39,12 +37,17 @@ public class AmmoCount : MonoBehaviour {
 
 				Color color = rectTransform.GetComponent<Image> ().color;
 				GameObject colorShot;
+				AudioSource audioSource;
+
 				if (color == Color.blue) {
-					colorShot = blueShot;
+					colorShot = colorShots[0];
+					audioSource = GetComponents<AudioSource>()[0];
 				} else if (color == Color.green) {
-					colorShot = greenShot;
+					colorShot = colorShots[1];
+					audioSource = GetComponents<AudioSource>()[1];
 				} else if (color == Color.red) {
-					colorShot = redShot;
+					colorShot = colorShots[2];
+					audioSource = GetComponents<AudioSource>()[2];
 				} else {
 					return;
 				}
@@ -52,6 +55,8 @@ public class AmmoCount : MonoBehaviour {
 				GameObject newShot = Instantiate (colorShot, birbLocation.transform.position
 					, Quaternion.identity) as GameObject;
 				Object.Destroy (newShot, 0.9f);
+
+				audioSource.Play ();
             }
         }
        
