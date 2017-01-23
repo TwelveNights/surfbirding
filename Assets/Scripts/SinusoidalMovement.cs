@@ -25,8 +25,8 @@ public class SinusoidalMovement : MonoBehaviour {
         float increment = Mathf.Sin (Time.time) * currentAmplitude + currMousePos;
         transform.position = new Vector3(-8 , increment);
 
-        currentAmplitude += AMPLITUDE_STEP;
-        currentFrequency += FREQUENCY_STEP;
+        // currentAmplitude += AMPLITUDE_STEP;
+        // currentFrequency += FREQUENCY_STEP;
     }
 
 }

@@ -21,7 +21,7 @@ public class GameStatusIndicator: MonoBehaviour {
             SceneManager.LoadScene("GameOver");
         }
         
-        else if (map.gameWon())
+        else if (map.gameWon)
         {
             SceneManager.LoadScene("GameWon");
         }
