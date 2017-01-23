@@ -19,6 +19,7 @@ public class Map : MonoBehaviour {
     public int time = 0;
 
     public AudioSource audioSource;
+    public bool gameWon = false;
 
     void Awake()
     {
@@ -40,11 +41,17 @@ public class Map : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         Transform t = gameObject.transform;
+        if (time < top.GetComponent<Edge>().waveForm.Length - 50)
+        {
+            time = audioSource.timeSamples / resolution * 2;
+            t.position = new Vector3(initialX - time, transform.position.y);
+        }
 
-        time = audioSource.timeSamples / resolution * 2;
-        t.position = new Vector3(initialX - time, transform.position.y);
-
-    }
+        else
+        {
+            gameWon = true;
+        }
+    } 
 
     public Vector2 getEdgeBound(int curr)
     {
@@ -59,9 +66,5 @@ public class Map : MonoBehaviour {
         return new Vector2(tEdge.waveForm[curr] * amplitude - tunnelWidth + initialY, bEdge.waveForm[curr] * amplitude + initialY);
     }
 
-    public bool gameWon()
-    {
-        return time > top.GetComponent<Edge>().waveForm.Length;
-    }
 }
     
